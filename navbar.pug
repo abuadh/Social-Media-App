@@ -1,0 +1,12 @@
+aside.sidebar
+  if username
+    div.user-info
+      span Welcome, #{username}
+      form(action='/logout', method='POST')
+        button(type='submit') Logout
+  //- else
+  //-   nav
+  //-     ul
+  //-       li: a(href='/') Home
+  //-       li: a(href='/login') Login
+  //-       li: a(href='/register') Register

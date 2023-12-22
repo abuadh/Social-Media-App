@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Better Twitter
+    link(rel='stylesheet' href='/css/styles.css')
+
+  body
+    aside.sidebar
+      nav
+        ul
+          li: a(href='/') Home
+          if username
+            li
+              form(action='/logout', method='POST')
+                a(href='#', onclick='this.parentNode.submit();') Logout
+          else
+            li: a(href='/login') Login
+            li: a(href='/register') Register
+
+    div.main-content
+      header
+        h1 twitter but it is way better
+        h2 made by haniya :3
+      //sorting posts
+      section.sort-posts
+        form(action="/" method="get")
+          select(name="sort" onchange="this.form.submit()")
+            option(value="date" selected=sortOption === 'date') Newest First
+            option(value="likes" selected=sortOption === 'likes') Most Liked
+            button(type="submit") Sort
+      //creating posts
+      section.create-post
+        div.special-chars
+          | ᶻ 𝗓 𐰁 ₊˚ ☁️⋅♡𓂃 ࣪ ִֶָ☾. /ᐠ - ˕ -マ ⋆⭒˚｡⋆
+        form(action='/create-post', method='POST')
+          fieldset
+            legend Create a New Post
+            //textarea(name='postContent', placeholder="Make a post", required)
+            textarea(name='postContent', placeholder="Make a post", required, maxlength='750')
+
+            button(type='submit') Post
+      //display posts
+      section.posts-feed
+        each post in posts
+          article.post
+            //username on post
+            div.post-header
+                h3.post-author= post.username 
+                //post content and date
+            div.post-content= post.content
+            div.post-date
+              time.post-time= new Date(post.created_at).toLocaleDateString("en-US")
+            //like, edit, delete
+            div.post-actions
+              button.like-button(data-post-id=post.id) Like
+              span(id=`like-count-${post.id}`)= post.likeCount + ' likes'
+              if post.user_id == currentUser
+                button(onclick='showEditForm(this)') Edit
+                form(action=`/delete-post/${post.id}`, method='POST')
+                  button(type='submit') Delete
+                form.edit-form(action=`/edit-post/${post.id}`, method='POST', style='display: none;')
+                  textarea(name='newContent')= post.content
+                  button(type='submit') Save Changes
+
+            div.separator  
+
+    script.
+      var currentUser = !{JSON.stringify(currentUser)};
+      //show edit form
+      function showEditForm(button) {
+        const form = button.nextElementSibling; 
+        form.style.display = 'block'; 
+        button.style.display = 'none'; 
+      }
+    script(src='/js/main.js')
+
+

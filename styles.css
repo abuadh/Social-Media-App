@@ -1,0 +1,258 @@
+/* homepage */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFD1DA; 
+    color: #14171a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.sidebar {
+    width: 200px;
+    background-color: #FBA1B7; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    padding: 10px 0;
+}
+.sidebar ul li a:hover {
+    background-color: #cc9daf;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+.create-post {
+    background-color: #FFEBD8;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.create-post textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #FFEBD8;
+    border-radius: 8px;
+    resize: none;
+}
+.form-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.create-post button {
+    background-color: #C7DCA7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px; 
+}
+.create-post button:hover {
+    background-color: #C7DCA7;
+}
+.sort-dropdown {
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+}
+.posts-feed {
+    background-color: #FFEBD8;
+    border: 1px solid #FFEBD8;
+    border-radius: 8px;
+    padding: 10px;
+}
+.post {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #FFEBD8;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post-content {
+    margin-bottom: 5px;
+}
+
+.post-actions button {
+    background: none;
+    color: #FBC1D7;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    text-decoration: underline;
+}
+
+button, .post-actions button[type="submit"] {
+    background-color: #C7DCA7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover, .post-actions button[type="submit"]:hover {
+    background-color: #C7DCA7;
+}
+.post-date {
+    font-size: 0.9em;
+    color: #deb8c0;
+    margin-top: 10px;
+}
+
+.separator {
+    border-bottom: 1px solid #deb8c0; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* login and register */
+.login-container {
+    text-align: center;
+    background-color:#FFEBD8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; 
+    margin: auto;
+}
+
+.login-container h2 {
+    color: #14171a;
+}
+
+.login-container input[type="text"], 
+.login-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #C7DCA7;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background-color: #C7DCA7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-container button:hover {
+    background-color: #B0C296; 
+}
+
+.login-container p {
+    margin-top: 15px;
+    color: #14171a;
+}
+
+.login-container a {
+    color: #FBC1D7; 
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+body.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFD1DA;
+}
+
+
+
+/* 
+extra stuff ignore  */
+
+.special-chars {
+    text-align: center; 
+    margin-bottom: 5px; 
+    font-size: 20px; 
+    color: #000000; 
+}
+.ascii-art {
+    text-align: center; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+  }
+
+  
+  .hearts-animation {
+    position: relative;
+  }
+  
+  .hearts-animation .heart {
+    position: absolute;
+    animation: floatHearts 3s infinite;
+    opacity: 0;
+  }
+  
+  .hearts-animation .heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .hearts-animation .heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 0.5s;
+  }
+  
+  .hearts-animation .heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 1s;
+  }
+  
+  .hearts-animation .heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 1.5s;
+  }
+  
+  .hearts-animation .heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 2s;
+  }
+  
+  @keyframes floatHearts {
+    0%, 100% {
+      top: 0;
+      opacity: 1;
+    }
+    50% {
+      top: -30px;
+      opacity: 0.5;
+    }
+  }
+  
